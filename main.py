@@ -35,7 +35,7 @@ def task_runner():
             task_id += 1  # Increment task_id
             _add_task_(task_id, user_input)  # Pass task_id to _add_task_
         elif operator == "x":
-            _update_task_(int(user_input))
+            _update_task_(int(user_input), taskList)
 
 
 def _add_task_(id: int, description: str) -> Task:
@@ -49,3 +49,6 @@ def _update_task_(id: int, taskList: list) -> None:
     for task in taskList:
         if task.id == id:
             task.check()
+
+
+task_runner()
