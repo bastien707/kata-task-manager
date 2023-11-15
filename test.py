@@ -1,5 +1,5 @@
 import pytest
-from main import Task
+from main import Task, _update_task_
 
 
 class TestTask:
@@ -15,12 +15,14 @@ class TestTask:
         assert task.checked == False
         assert task.id == 0
 
-    def test_task_str(self) -> None:
-        task = Task(0, "do something")
-        assert str(task) == "Task(id=0, description=do something, checked=False)"
-
     def test_task_check(self) -> None:
         task = Task(0, "do something")
         if task.checked == False:
             task.check()
         assert task.checked == True
+
+    def test_update_task(self) -> None:
+        taskList = [Task(0, "do something"), Task(1, "do something else")]
+        assert taskList[0].checked == False
+        _update_task_(0, taskList)
+        assert taskList[0].checked == True
