@@ -30,6 +30,9 @@ def rpn_reader():
             _add_task_(task_id, description)  # Pass task_id to _add_task_
 
 def _add_task_(id: int, description: str) -> Task:
-    taskList.append(Task(id, description))  # Pass id to Task
+    if description == "":
+        print("Need to add a description, please add one")
+    else:
+        taskList.append(Task(id, description))  # Pass id to Task
 
 rpn_reader()
