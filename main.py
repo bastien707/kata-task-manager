@@ -36,6 +36,8 @@ def task_runner():
             _add_task_(task_id, user_input)  # Pass task_id to _add_task_
         elif operator == "x":
             _update_task_(int(user_input), taskList)
+        elif operator == "-":
+            _removetask(int(user_input), taskList)
         elif operator == "q":
             menu = False
             print("Bye bye")
@@ -52,6 +54,13 @@ def _update_task_(id: int, taskList: list) -> None:
     for task in taskList:
         if task.id == id:
             task.check()
+
+
+def _removetask(id: int, taskList: list):
+    for task in taskList:
+        if task.id == id:
+            taskList.remove(task)
+            break
 
 
 task_runner()
