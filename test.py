@@ -26,3 +26,10 @@ class TestTask:
         assert taskList[0].checked == False
         _update_task_(0, taskList)
         assert taskList[0].checked == True
+        
+    def test_remove_task(self) -> None:
+        taskList = [Task(0, "do something"), Task(1, "do something else")]
+        assert len(taskList) == 2
+        taskList.remove(taskList[0])
+        assert len(taskList) == 1
+        
